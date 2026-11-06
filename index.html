@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>СПРИНТ — журнал школьников Азии о бизнесе, маркетинге и AI</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Unbounded:wght@500;700;900&family=Onest:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#EEF2F7;--surface:#fff;--ink:#14173F;--muted:#586079;--line:#d5dbe8;--hot:#FF5A1F;--mint:#12B886;--sun:#FFD23F;--sky:#3B6DF0;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#0E1130;--surface:#181C4A;--ink:#F1F3FF;--muted:#a6adcf;--line:#2b3070}}
+:root[data-theme="dark"]{--bg:#0E1130;--surface:#181C4A;--ink:#F1F3FF;--muted:#a6adcf;--line:#2b3070}
+html{scroll-padding-top:env(safe-area-inset-top,0px);scroll-behavior:smooth}
+*,*::before,*::after{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font:400 17px/1.6 Onest,system-ui,sans-serif}
+h1,h2,h3{font-family:Unbounded,Onest,system-ui,sans-serif;line-height:1.15;margin:0}
+a{color:inherit}
+:focus-visible{outline:3px solid var(--sky);outline-offset:3px}
+.wrap{max-width:1080px;margin:0 auto;padding:0 20px}
+header.top{display:flex;justify-content:space-between;align-items:center;padding:18px 0}
+.logo{font:900 22px Unbounded,sans-serif;text-decoration:none;display:flex;gap:8px;align-items:center}
+.logo i{width:14px;height:14px;background:var(--hot);border-radius:50%;display:inline-block}
+nav a{margin-left:18px;text-decoration:none;font-weight:500;color:var(--muted)}
+nav a:hover{color:var(--ink)}
+.hero{padding:36px 0 56px;display:grid;grid-template-columns:1.25fr 1fr;gap:36px;align-items:center}
+.hero h1{font-size:clamp(34px,6vw,64px);font-weight:900;letter-spacing:-.02em}
+.hero h1 span{display:block;color:var(--hot)}
+.hero p.lead{max-width:46ch;color:var(--muted);font-size:19px;margin:20px 0 26px}
+.btn{display:inline-block;background:var(--ink);color:var(--bg);padding:14px 22px;border-radius:999px;font-weight:700;text-decoration:none;border:0;cursor:pointer;font:700 16px Onest,sans-serif}
+.btn.alt{background:transparent;color:var(--ink);border:2px solid var(--ink);margin-left:8px}
+/* calculator */
+.calc{background:var(--surface);border:2px solid var(--ink);border-radius:22px;padding:22px;box-shadow:8px 8px 0 var(--sun)}
+.calc h2{font-size:17px;margin-bottom:4px}
+.calc small{color:var(--muted)}
+.row{margin-top:14px}
+.row label{display:flex;justify-content:space-between;font-weight:500;font-size:15px}
+.row input[type=range]{width:100%;accent-color:var(--hot)}
+.res{margin-top:18px;padding:14px;border-radius:14px;background:var(--bg);font-weight:700}
+.res b{font:900 26px Unbounded,sans-serif;display:block}
+.res.bad b{color:var(--hot)}.res.ok b{color:var(--mint)}
+.band{background:var(--ink);color:var(--bg);padding:14px 0;overflow-x:auto;white-space:nowrap}
+.band span{margin-right:28px;font-weight:500}
+section{padding:56px 0}
+section>.wrap>h2{font-size:clamp(26px,4vw,38px);margin-bottom:8px}
+.sub{color:var(--muted);margin:0 0 24px;max-width:60ch}
+.filters{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:24px}
+.chip{border:2px solid var(--ink);background:transparent;color:var(--ink);padding:8px 16px;border-radius:999px;cursor:pointer;font:500 15px Onest,sans-serif}
+.chip[aria-pressed="true"]{background:var(--ink);color:var(--bg)}
+.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+.card{background:var(--surface);border:1px solid var(--line);border-radius:18px;padding:0;text-align:left;cursor:pointer;color:inherit;font:inherit;display:flex;flex-direction:column;overflow:hidden}
+.card:hover{border-color:var(--ink)}
+.card .art{height:110px;display:flex;align-items:flex-end;padding:14px;font:900 40px Unbounded,sans-serif;color:var(--ink)}
+.card .body{padding:16px 18px 20px}
+.tag{font-weight:700;font-size:14px;color:var(--muted)}
+.card h3{font-size:18px;margin:6px 0 8px}
+.card p{margin:0;color:var(--muted);font-size:15px}
+.card.feature{grid-column:span 2}
+.card.feature .art{height:150px;font-size:52px}
+.c-biz .art{background:var(--sun)}.c-mkt .art{background:var(--hot);color:#fff}.c-ai .art{background:var(--sky);color:#fff}.c-ent .art{background:var(--mint)}
+/* modal */
+dialog{border:0;border-radius:22px;padding:0;max-width:680px;width:calc(100% - 28px);background:var(--surface);color:var(--ink);max-height:88vh}
+dialog::backdrop{background:rgba(10,12,40,.6)}
+.m-head{padding:28px 28px 12px}
+.m-head h2{font-size:clamp(22px,4vw,30px);margin-top:8px}
+.m-body{padding:0 28px 24px;overflow:auto}
+.m-body p{margin:0 0 14px}
+.m-body .take{background:var(--bg);border-left:6px solid var(--hot);padding:14px 16px;border-radius:8px;font-weight:500}
+.close{position:absolute;top:14px;right:14px;border:0;background:var(--bg);color:var(--ink);width:40px;height:40px;border-radius:50%;font-size:20px;cursor:pointer}
+/* path */
+.path{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
+.step{border-top:6px solid var(--hot);background:var(--surface);padding:16px;border-radius:0 0 14px 14px}
+.step:nth-child(2){border-color:var(--sun)}.step:nth-child(3){border-color:var(--mint)}.step:nth-child(4){border-color:var(--sky)}
+.step h3{font-size:16px;margin-bottom:6px}.step p{margin:0;color:var(--muted);font-size:15px}
+.join{background:var(--ink);color:var(--bg);border-radius:26px;padding:40px;display:grid;grid-template-columns:1.2fr 1fr;gap:28px;align-items:center}
+.join h2{font-size:clamp(24px,4vw,34px)}
+.join ul{margin:0;padding-left:20px}
+.join .btn{background:var(--sun);color:#14173F;margin-top:16px}
+footer{padding:36px 0 48px;color:var(--muted);font-size:15px}
+.theme{background:none;border:2px solid var(--line);color:var(--ink);border-radius:999px;padding:6px 12px;cursor:pointer;margin-left:16px;font:500 14px Onest,sans-serif}
+@media (max-width:820px){.hero,.join{grid-template-columns:1fr}.grid{grid-template-columns:1fr 1fr}.path{grid-template-columns:1fr 1fr}nav a:not(.keep){display:none}}
+@media (max-width:560px){.grid,.path{grid-template-columns:1fr}.card.feature{grid-column:auto}.join{padding:26px}}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header class="top">
+    <a class="logo" href="#top"><i></i>СПРИНТ</a>
+    <nav><a href="#articles">Статьи</a><a href="#path">С чего начать</a><a class="keep" href="#join">Писать у нас</a><button class="theme" id="theme" type="button">Тема</button></nav>
+  </header>
+  <div class="hero" id="top">
+    <div>
+      <h1>Бизнес, маркетинг и AI <span>для школьников Азии</span></h1>
+      <p class="lead">Журнал, который пишут и читают ученики 12–18 лет из Казахстана, Узбекистана, Индии, Китая, Кореи, Вьетнама и других стран. Простые разборы, реальные истории, идеи, которые можно проверить на этой неделе.</p>
+      <a class="btn" href="#articles">Читать выпуск</a><a class="btn alt" href="#join">Стать автором</a>
+    </div>
+    <div class="calc" aria-label="Мини-калькулятор бизнеса">
+      <h2>Проверь идею за 30 секунд</h2>
+      <small>Продаёшь стикеры, лимонад или дизайн-услуги? Посчитай прибыль.</small>
+      <div class="row"><label for="price">Цена <output id="oPrice">1500</output></label><input id="price" type="range" min="200" max="10000" step="100" value="1500"></div>
+      <div class="row"><label for="cost">Себестоимость <output id="oCost">700</output></label><input id="cost" type="range" min="0" max="9000" step="100" value="700"></div>
+      <div class="row"><label for="qty">Продаж в месяц <output id="oQty">30</output></label><input id="qty" type="range" min="1" max="300" value="30"></div>
+      <div class="res ok" id="res"><span>Прибыль в месяц</span><b id="profit">24 000</b><span id="verdict"></span></div>
+    </div>
+  </div>
+</div>
+<div class="band" aria-hidden="true"><div class="wrap"><span>Казахстан</span><span>Узбекистан</span><span>Кыргызстан</span><span>Китай</span><span>Индия</span><span>Япония</span><span>Южная Корея</span><span>Вьетнам</span><span>Индонезия</span><span>Малайзия</span><span>Монголия</span><span>ОАЭ</span></div></div>
+
+<section id="articles"><div class="wrap">
+  <h2>Свежий выпуск</h2>
+  <p class="sub">Выбери тему. Каждая статья читается за 3 минуты и заканчивается заданием.</p>
+  <div class="filters" role="group" aria-label="Темы" id="filters"></div>
+  <div class="grid" id="grid"></div>
+</div></section>
+
+<section id="path" style="padding-top:0"><div class="wrap">
+  <h2>С чего начать за 4 недели</h2>
+  <p class="sub">Маршрут для тех, кто ещё ничего не запускал.</p>
+  <div class="path">
+    <div class="step"><h3>Неделя 1. Проблема</h3><p>Поговори с 5 людьми и запиши, на что они жалуются. Выбери одну проблему.</p></div>
+    <div class="step"><h3>Неделя 2. Прототип</h3><p>Сделай самую простую версию решения: страницу, макет или пробную партию.</p></div>
+    <div class="step"><h3>Неделя 3. Первые клиенты</h3><p>Найди 3 человек, которые готовы заплатить. Бесплатные отзывы не считаются.</p></div>
+    <div class="step"><h3>Неделя 4. Выводы</h3><p>Посчитай прибыль, напиши, что получилось, и опубликуй историю у нас.</p></div>
+  </div>
+</div></section>
+
+<section id="join" style="padding-top:0"><div class="wrap">
+  <div class="join">
+    <div>
+      <h2>Журнал делают школьники. Присоединяйся.</h2>
+      <p>Нам нужны авторы, редакторы, иллюстраторы и переводчики из любой страны Азии.</p>
+      <a class="btn" href="mailto:hello@sprint-mag.example?subject=Хочу в команду СПРИНТ">Написать в редакцию</a>
+    </div>
+    <ul>
+      <li>Публикуй статьи под своим именем</li>
+      <li>Получай отзыв от редактора</li>
+      <li>Собери портфолио с реальными ссылками</li>
+      <li>Получи рекомендацию за вклад</li>
+    </ul>
+  </div>
+</div></section>
+
+<footer><div class="wrap">© 2026 СПРИНТ. Независимый школьный журнал. Материалы носят образовательный характер и не являются финансовой рекомендацией.</div></footer>
+
+<dialog id="dlg" aria-labelledby="mTitle"><button class="close" id="mClose" aria-label="Закрыть">×</button><div class="m-head"><span class="tag" id="mTag"></span><h2 id="mTitle"></h2></div><div class="m-body" id="mBody"></div></dialog>
+
+<script>
+var CATS={all:"Все",biz:"Бизнес",mkt:"Маркетинг",ai:"AI",ent:"Предпринимательство"};
+var ART=[
+{id:1,c:"biz",icon:"₸",t:"Как заработать первые 10 000 на школьном рынке",d:"Простая схема: найти боль, продать, посчитать.",f:true,
+b:["Самый частый совет — «придумай уникальный стартап». Для школьника он не работает. Работает другое: найди то, за что одноклассники уже платят деньгами или временем, и сделай это удобнее.","Примеры: печать конспектов, стикеры с мемами про учителей, репетиторство 8-классников старшеклассниками, оформление презентаций. Всё это можно продать в первые две недели.","Главное правило: цена должна покрывать себестоимость и твоё время. Если ты тратишь час и получаешь 500 тенге, это хобби, а не бизнес."],
+k:"Задание: выбери услугу и посчитай прибыль в калькуляторе на главной."},
+{id:2,c:"ai",icon:"AI",t:"5 способов использовать AI в учёбе и не стать «копипастером»",d:"AI как тренер, а не как исполнитель домашки.",
+b:["Первый способ: попроси AI объяснить тему тремя уровнями (как 8-летнему, как школьнику, как студенту). Второй: пусть задаёт тебе вопросы по теме и проверяет ответы.","Третий: загрузи свой черновик и попроси найти слабые места, а не переписать. Четвёртый: сравнивай ответы разных AI и ищи расхождения. Пятый: проси план, а текст пиши сам.","Помни: AI ошибается уверенно. Проверяй факты, даты и цифры по надёжным источникам."],
+k:"Задание: возьми тему из школьной программы и сделай по ней мини-тест через AI."},
+{id:3,c:"mkt",icon:"#",t:"Маркетинг без бюджета: как найти первых 100 подписчиков",d:"Контент, который люди сохраняют и пересылают.",
+b:["У маленького проекта нет денег на рекламу, но есть время. Выбери одну площадку (TikTok, Instagram, Telegram или YouTube Shorts) и одну тему на 30 дней.","Формула ролика: крючок за 2 секунды, польза за 20, призыв сохранить или переслать. Публикуй по расписанию, даже если просмотров мало.","Смотри на метрики: удержание и сохранения важнее лайков. Именно они подсказывают, что повторять."],
+k:"Задание: напиши 10 заголовков-крючков для своей темы и выбери три лучших."},
+{id:4,c:"ent",icon:"✦",t:"Истории: школьные стартапы из Азии, у которых можно учиться",d:"Что общего у юных основателей.",
+b:["Школьники в Азии запускают приложения для изучения языков, магазины мерча, студии дизайна и образовательные каналы. Общие черты у них простые: маленький старт, быстрая проверка, честные выводы.","Они не ждут идеального момента и делают первую версию за выходные. Они просят отзывы у реальных пользователей, а не только у друзей.","Мы собираем такие истории. Если ты запустил проект, расскажи о нём в рубрике «Мой первый клиент»."],
+k:"Задание: напиши 5 предложений о своём проекте и отправь в редакцию."},
+{id:5,c:"biz",icon:"%",t:"Финансовая грамотность подростка: бюджет, цель, подушка",d:"Три шага к привычке управлять деньгами.",
+b:["Шаг 1: записывай все доходы и траты 30 дней. Не меняй поведение, просто смотри. Шаг 2: раздели деньги на три части: нужное, желаемое, накопления.","Шаг 3: поставь конкретную цель с датой, например «50 000 на ноутбук к 1 июня». Цель без числа и срока забывается.","Если ты зарабатываешь свои деньги, учись откладывать хотя бы 10 % с каждого дохода."],
+k:"Задание: заведи таблицу и вноси траты неделю."},
+{id:6,c:"ai",icon:"</>",t:"Создай свой первый AI-проект без кода",d:"Чат-бот, генератор идей или помощник по учёбе.",
+b:["Для первого проекта не нужно программировать. Сформулируй задачу: кому и что должен помогать твой бот, например готовить к экзамену по истории.","Напиши инструкцию в три части: роль, правила, формат ответа. Протестируй на 10 вопросах и запиши, где он ошибается.","Затем доработай инструкцию и покажи проект друзьям. Результат можно положить в портфолио со скриншотами и описанием."],
+k:"Задание: напиши инструкцию для бота-помощника по любому школьному предмету."},
+{id:7,c:"mkt",icon:"★",t:"Личный бренд школьника: что показывать поступающим и работодателям",d:"Портфолио, которое работает.",
+b:["Личный бренд — это не количество подписчиков, а понятный ответ на вопрос «чем этот человек занимается». Выбери 2–3 направления и показывай только их.","Лучшее портфолио состоит из проектов с результатом: что сделал, какая была цель, что получилось в цифрах. Добавь короткое описание и ссылку.","Обнови профиль в LinkedIn или личный сайт и выложи 3 лучших работы."],
+k:"Задание: опиши один свой проект по схеме «задача, действия, результат»."},
+{id:8,c:"ent",icon:"?",t:"10 ошибок начинающих предпринимателей",d:"Чему лучше научиться на чужих историях.",
+b:["Типичные ошибки: делать продукт без проверки спроса, брать слишком много задач сразу, не считать деньги, бояться первых продаж и не просить отзывы.","Ещё: копировать чужие идеи без понимания клиента, тратить всё на дизайн вместо продаж, работать без команды и забрасывать проект после первой неудачи.","Каждая ошибка исправляется привычкой: тест перед запуском, учёт денег, еженедельный разбор итогов."],
+k:"Задание: отметь 3 ошибки, которые вероятны у тебя, и придумай, как их избежать."}
+];
+var cur="all",grid=document.getElementById("grid"),fl=document.getElementById("filters"),dlg=document.getElementById("dlg");
+function chips(){fl.innerHTML="";Object.keys(CATS).forEach(function(k){var b=document.createElement("button");b.className="chip";b.type="button";b.textContent=CATS[k];b.setAttribute("aria-pressed",k===cur);b.onclick=function(){cur=k;chips();draw()};fl.appendChild(b)})}
+function draw(){grid.innerHTML="";ART.filter(function(a){return cur==="all"||a.c===cur}).forEach(function(a,i){var b=document.createElement("button");b.type="button";b.className="card c-"+a.c+(a.f&&cur==="all"?" feature":"");b.innerHTML='<div class="art">'+a.icon+'</div><div class="body"><span class="tag">'+CATS[a.c]+'</span><h3>'+a.t+'</h3><p>'+a.d+'</p></div>';b.onclick=function(){open(a)};grid.appendChild(b)})}
+function open(a){document.getElementById("mTag").textContent=CATS[a.c];document.getElementById("mTitle").textContent=a.t;document.getElementById("mBody").innerHTML=a.b.map(function(p){return"<p>"+p+"</p>"}).join("")+'<p class="take">'+a.k+"</p>";if(dlg.showModal)dlg.showModal();else dlg.setAttribute("open","")}
+document.getElementById("mClose").onclick=function(){dlg.close()};
+dlg.addEventListener("click",function(e){if(e.target===dlg)dlg.close()});
+/* calculator */
+function fmt(n){return n.toLocaleString("ru-RU")}
+function calc(){var p=+price.value,c=+cost.value,q=+qty.value;oPrice.textContent=fmt(p);oCost.textContent=fmt(c);oQty.textContent=q;var pr=(p-c)*q;profit.textContent=fmt(pr);var r=document.getElementById("res");r.className="res "+(pr>0?"ok":"bad");verdict.textContent=pr<=0?"Идея в минусе: подними цену или снизь затраты.":(p-c)/p<.3?"Маржа ниже 30 %: запас прочности маленький.":"Хорошая маржа. Проверь, найдутся ли такие покупатели."}
+["price","cost","qty"].forEach(function(id){document.getElementById(id).addEventListener("input",calc)});
+/* theme */
+document.getElementById("theme").onclick=function(){var d=document.documentElement,dark=d.getAttribute("data-theme")==="dark"||(!d.getAttribute("data-theme")&&matchMedia("(prefers-color-scheme:dark)").matches);d.setAttribute("data-theme",dark?"light":"dark")};
+chips();draw();calc();
+</script>
+</body>
+</html>
